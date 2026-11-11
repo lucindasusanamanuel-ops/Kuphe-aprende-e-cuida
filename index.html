@@ -1,0 +1,392 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071629">
+<title>KUPHE APRENDE E CUIDA</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+ font-family:Arial,sans-serif;
+ background:#07111f;color:#f1f5f9;
+ line-height:1.7;
+}
+header{
+ background:#0d2037;padding:18px 6%;
+ display:flex;align-items:center;justify-content:space-between;
+ position:sticky;top:0;z-index:100;
+ border-bottom:1px solid #24415f;
+}
+.logo{font-size:19px;font-weight:bold;color:#42d6a4}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:14px}
+nav a:hover{color:#42d6a4}
+.menu{display:none;background:#173653;color:white;border:0;padding:9px}
+.hero{
+ min-height:430px;padding:75px 7%;
+ display:flex;align-items:center;
+ background:linear-gradient(90deg,#071629ed,#071629b8),
+ url('https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1400') center/cover;
+}
+.hero-content{max-width:700px}
+.hero h1{font-size:clamp(32px,6vw,55px);line-height:1.2;margin:15px 0}
+.hero p{font-size:18px;color:#d0dfed}
+.tag{color:#42d6a4;font-weight:bold}
+.btn{
+ display:inline-block;background:#13a77a;color:white;
+ padding:12px 20px;border-radius:9px;
+ text-decoration:none;border:0;font-weight:bold;
+ margin:12px 5px 0 0;cursor:pointer;
+}
+.btn:hover{background:#087d5b;transform:translateY(-2px)}
+section{padding:65px 7%;scroll-margin-top:85px}
+.section-title{text-align:center;margin-bottom:30px}
+.section-title h2{font-size:30px;color:#42d6a4}
+.section-title p{color:#aabbd0}
+.cards{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+ gap:20px;
+}
+.card{
+ background:#10243a;border:1px solid #28445f;
+ border-radius:15px;overflow:hidden;
+ transition:.3s;animation:appear .8s ease;
+}
+.card:hover{transform:translateY(-7px);border-color:#42d6a4}
+.card img{width:100%;height:160px;object-fit:cover}
+.card-content{padding:20px}
+.card h3{color:#42d6a4;margin-bottom:8px}
+.card p{color:#c0ccda;font-size:14px}
+.content-box{
+ background:#10243a;padding:25px;border-radius:14px;
+ border:1px solid #28445f;margin:20px 0;
+}
+.content-box h3{color:#42d6a4;margin-bottom:10px}
+.content-box li{margin-left:22px}
+.video-box{
+ background:#10243a;border:1px solid #28445f;
+ border-radius:14px;padding:25px;margin-top:20px;
+}
+.video-box h3{color:#42d6a4}
+.video-placeholder{
+ background:#020914;min-height:160px;
+ display:flex;align-items:center;justify-content:center;
+ flex-direction:column;text-align:center;
+ border-radius:12px;padding:20px;margin:15px 0;
+}
+.play{font-size:48px;color:#42d6a4}
+.lesson{display:none}
+.lesson.active{display:block;animation:appear .6s}
+.lesson h2{color:#42d6a4;font-size:27px;margin-bottom:15px}
+.lesson p{margin:10px 0}
+.quiz button{margin:7px;padding:10px;border-radius:7px;
+ border:1px solid #42d6a4;background:#173653;color:white}
+#resultado{color:#42d6a4;font-weight:bold;margin-top:12px}
+footer{
+ background:#06101c;text-align:center;padding:35px 15px;
+ color:#aabbd0;border-top:1px solid #28445f;
+}
+footer strong{color:#42d6a4}
+@keyframes appear{
+ from{opacity:0;transform:translateY(20px)}
+ to{opacity:1;transform:translateY(0)}
+}
+@media(max-width:700px){
+ header{flex-wrap:wrap}
+ .menu{display:block}
+ nav{display:none;width:100%;flex-direction:column;padding:15px 0}
+ nav.show{display:flex}
+ .hero{min-height:380px;padding:55px 7%}
+ section{padding:48px 5%}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="logo">🌍 KUPHE APRENDE E CUIDA</div>
+ <button class="menu" onclick="document.querySelector('nav').classList.toggle('show')">☰ MENU</button>
+ <nav>
+  <a href="#inicio">Início</a>
+  <a href="#cursos">Cursos</a>
+  <a href="#sobre">Sobre</a>
+  <a href="#biblioteca">Biblioteca</a>
+ </nav>
+</header>
+
+<div class="hero" id="inicio">
+ <div class="hero-content">
+  <span class="tag">EDUCAÇÃO • TECNOLOGIA • SAÚDE</span>
+  <h1>Bem-vindo ao KUPHE APRENDE E CUIDA</h1>
+  <p>Aprender, descobrir, desenvolver conhecimentos e construir um futuro melhor para os estudantes e a comunidade.</p>
+  <a href="#cursos" class="btn">Explorar os cursos →</a>
+ </div>
+</div>
+
+<section id="sobre">
+ <div class="section-title">
+  <h2>O nosso portal educativo</h2>
+  <p>Conhecimento acessível para todos.</p>
+ </div>
+ <div class="content-box">
+  O KUPHE APRENDE E CUIDA é um portal educativo destinado a apoiar os estudantes da Escola Secundária de Kuphe.
+  Aqui encontrarás aulas, vídeos, imagens, explicações, exercícios e ideias para melhorar a escola e a comunidade.
+ </div>
+</section>
+
+<section id="cursos">
+ <div class="section-title">
+  <h2>📚 As nossas seis secções</h2>
+  <p>Escolhe uma área e começa a aprender.</p>
+ </div>
+ <div class="cards">
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=700" alt="Internet e computador">
+   <div class="card-content">
+    <h3>🌐 Internet e segurança</h3>
+    <p>Aprende a navegar na Internet, proteger contas e reconhecer perigos digitais.</p>
+    <button class="btn" onclick="abrir('internet')">Entrar na aula</button>
+   </div>
+  </div>
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=700" alt="Programação">
+   <div class="card-content">
+    <h3>💻 JavaScript</h3>
+    <p>Aprende programação desde os primeiros passos.</p>
+    <button class="btn" onclick="abrir('javascript')">Entrar na aula</button>
+   </div>
+  </div>
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=700" alt="Estudantes">
+   <div class="card-content">
+    <h3>⚖️ Direitos e deveres</h3>
+    <p>Conhece os direitos, responsabilidades e regras dos estudantes.</p>
+    <button class="btn" onclick="abrir('direitos')">Entrar na aula</button>
+   </div>
+  </div>
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700" alt="Saúde">
+   <div class="card-content">
+    <h3>🩺 Saúde e prevenção</h3>
+    <p>Informações sobre saúde, adolescência e prevenção da gravidez.</p>
+    <button class="btn" onclick="abrir('saude')">Entrar na aula</button>
+   </div>
+  </div>
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=700" alt="Projetos">
+   <div class="card-content">
+    <h3>🌱 Projetos comunitários</h3>
+    <p>Descobre formas de melhorar a escola e a comunidade.</p>
+    <button class="btn" onclick="abrir('projetos')">Entrar na aula</button>
+   </div>
+  </div>
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=700" alt="Biblioteca">
+   <div class="card-content">
+    <h3>📚 Biblioteca educativa</h3>
+    <p>Explora materiais, vídeos e recursos de aprendizagem.</p>
+    <button class="btn" onclick="abrir('biblioteca')">Entrar na aula</button>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="aulas">
+
+<div class="lesson active" id="inicio-aula">
+ <div class="section-title">
+  <h2>🎓 Sala de aprendizagem</h2>
+  <p>Seleciona um curso para começar.</p>
+ </div>
+</div>
+
+<div class="lesson" id="internet">
+ <h2>🌐 Curso de Internet e segurança digital</h2>
+ <div class="content-box">
+  <h3>O que é a Internet?</h3>
+  <p>A Internet é uma rede mundial que permite a comunicação, a pesquisa, a aprendizagem e a partilha de informações.</p>
+  <h3>Como navegar em segurança?</h3>
+  <ul>
+   <li>Usar palavras-passe fortes.</li>
+   <li>Não partilhar palavras-passe com outras pessoas.</li>
+   <li>Evitar links desconhecidos.</li>
+   <li>Proteger os dados pessoais.</li>
+   <li>Confirmar a informação antes de partilhar.</li>
+  </ul>
+ </div>
+ <div class="video-box">
+  <h3>🎬 Aula em vídeo com explicação</h3>
+  <div class="video-placeholder">
+   <div class="play">▶</div>
+   <p>Vídeo educativo sobre Internet e segurança digital.</p>
+  </div>
+  <a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=professor+explicando+seguranca+digital+para+estudantes">Assistir à aula com professor →</a>
+ </div>
+</div>
+
+<div class="lesson" id="javascript">
+ <h2>💻 Curso de JavaScript para iniciantes</h2>
+ <div class="content-box">
+  <h3>O que é JavaScript?</h3>
+  <p>JavaScript é uma linguagem de programação utilizada para criar páginas interativas e aplicações.</p>
+  <h3>Primeiro exemplo:</h3>
+  <pre style="background:#020914;padding:18px;border-radius:8px;overflow:auto;color:#42d6a4">let nome = "Estudante";
+alert("Bem-vindo ao JavaScript!");</pre>
+  <p>O comando alert apresenta uma mensagem no ecrã.</p>
+  <h3>Variáveis</h3>
+  <p>Uma variável guarda informações que podem ser utilizadas no programa.</p>
+  <pre style="background:#020914;padding:18px;border-radius:8px;color:#42d6a4">let idade = 16;
+let escola = "Kuphe";
+console.log(escola);</pre>
+ </div>
+ <div class="video-box">
+  <h3>🎬 Aula de programação com professor</h3>
+  <div class="video-placeholder"><div class="play">▶</div><p>Aprende JavaScript passo a passo.</p></div>
+  <a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=curso+javascript+para+iniciantes+aula+professor+portugues">Assistir à aula →</a>
+ </div>
+ <div class="content-box quiz">
+  <h3>📝 Exercício rápido</h3>
+  <p>Qual é a função do JavaScript?</p>
+  <button onclick="responder(false)">Apenas escrever documentos</button>
+  <button onclick="responder(true)">Criar interatividade em páginas</button>
+  <button onclick="responder(false)">Apenas editar fotografias</button>
+  <div id="resultado"></div>
+ </div>
+</div>
+
+<div class="lesson" id="direitos">
+ <h2>⚖️ Direitos e deveres dos estudantes</h2>
+ <div class="content-box">
+  <h3>Direitos</h3>
+  <ul>
+   <li>Ter acesso à educação.</li>
+   <li>Ser tratado com respeito e dignidade.</li>
+   <li>Receber explicações dos professores.</li>
+   <li>Estudar num ambiente seguro.</li>
+   <li>Participar nas atividades escolares.</li>
+  </ul>
+  <h3>Deveres</h3>
+  <ul>
+   <li>Respeitar professores e colegas.</li>
+   <li>Frequentar as aulas.</li>
+   <li>Conservar os materiais escolares.</li>
+   <li>Cumprir as regras da escola.</li>
+   <li>Evitar violência e discriminação.</li>
+  </ul>
+ </div>
+ <div class="video-box">
+  <h3>🎬 Aula explicativa</h3>
+  <div class="video-placeholder"><div class="play">▶</div><p>Aprende os direitos e deveres dos estudantes.</p></div>
+  <a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=professor+explicando+direitos+e+deveres+dos+estudantes">Assistir à aula →</a>
+ </div>
+</div>
+
+<div class="lesson" id="saude">
+ <h2>🩺 Saúde e prevenção da gravidez na adolescência</h2>
+ <div class="content-box">
+  <h3>Educação para a saúde</h3>
+  <p>Conhecer o próprio corpo e obter informações corretas ajuda os adolescentes a tomar decisões responsáveis e proteger a sua saúde.</p>
+  <h3>Prevenção e cuidados</h3>
+  <ul>
+   <li>Receber informação de profissionais de saúde.</li>
+   <li>Conhecer os métodos de prevenção da gravidez.</li>
+   <li>Aprender sobre infeções sexualmente transmissíveis.</li>
+   <li>Procurar aconselhamento em unidades sanitárias.</li>
+   <li>Respeitar os próprios limites e os dos outros.</li>
+  </ul>
+  <p>Não tenhas vergonha de procurar informação e orientação num serviço de saúde.</p>
+ </div>
+ <div class="video-box">
+  <h3>🎬 Vídeo educativo de saúde</h3>
+  <div class="video-placeholder"><div class="play">▶</div><p>Informação sobre adolescência e saúde.</p></div>
+  <a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=educacao+sexual+saude+adolescente+profissional+de+saude+portugues">Assistir à aula →</a>
+ </div>
+</div>
+
+<div class="lesson" id="projetos">
+ <h2>🌱 Projetos para melhorar a escola e a comunidade</h2>
+ <div class="content-box">
+  <h3>Ideias de projetos</h3>
+  <ul>
+   <li>Campanhas de limpeza da escola.</li>
+   <li>Plantio e conservação de árvores.</li>
+   <li>Criação de uma biblioteca escolar.</li>
+   <li>Educação ambiental.</li>
+   <li>Campanhas de prevenção de doenças.</li>
+   <li>Clubes de tecnologia e programação.</li>
+  </ul>
+  <h3>Como desenvolver um projeto?</h3>
+  <p>Identificar um problema, propor uma solução, organizar os participantes, definir tarefas e avaliar os resultados.</p>
+ </div>
+ <div class="video-box">
+  <h3>🎬 Aula sobre projetos comunitários</h3>
+  <div class="video-placeholder"><div class="play">▶</div><p>Aprende a desenvolver projetos.</p></div>
+  <a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=professor+explicando+como+criar+projetos+comunitarios">Assistir à aula →</a>
+ </div>
+</div>
+
+<div class="lesson" id="biblioteca">
+ <h2>📚 Biblioteca educativa</h2>
+ <div class="content-box">
+  <h3>Espaço de aprendizagem</h3>
+  <p>Aqui podes encontrar materiais adicionais para aprofundar os teus conhecimentos.</p>
+  <ul>
+   <li><a style="color:#42d6a4" href="https://www.khanacademy.org/" target="_blank">Khan Academy – aprender várias disciplinas.</a></li>
+   <li><a style="color:#42d6a4" href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" target="_blank">MDN – documentação JavaScript.</a></li>
+   <li><a style="color:#42d6a4" href="https://www.unicef.org/mozambique/" target="_blank">UNICEF Moçambique – educação e proteção.</a></li>
+   <li><a style="color:#42d6a4" href="https://www.who.int/" target="_blank">Organização Mundial da Saúde.</a></li>
+  </ul>
+ </div>
+ <div class="video-box">
+  <h3>🎬 Mais aulas em vídeo</h3>
+  <a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=aulas+educativas+em+portugues+professores">Explorar vídeos educativos →</a>
+ </div>
+</div>
+
+<button class="btn" onclick="voltar()" style="margin-top:25px">← Voltar aos cursos</button>
+</section>
+
+<section>
+ <div class="section-title">
+  <h2>⭐ A educação transforma o futuro</h2>
+  <p>Aprender hoje para construir um amanhã melhor.</p>
+ </div>
+ <div class="content-box" style="text-align:center">
+  <h3>KUPHE APRENDE E CUIDA</h3>
+  <p>Um projeto educativo para estudantes, professores e comunidade.</p>
+  <a href="#inicio" class="btn">Voltar ao início ↑</a>
+ </div>
+</section>
+
+<footer>
+ <strong>KUPHE APRENDE E CUIDA</strong>
+ <p>Portal educativo da Escola Secundária de Kuphe</p>
+ <p>Educação • Conhecimento • Comunidade</p>
+ <p>© 2026 - Todos os direitos reservados</p>
+</footer>
+
+<script>
+function abrir(id){
+ document.querySelectorAll('.lesson').forEach(x=>x.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ document.getElementById('aulas').scrollIntoView({behavior:'smooth'});
+ document.querySelector('nav').classList.remove('show');
+}
+function voltar(){
+ document.querySelectorAll('.lesson').forEach(x=>x.classList.remove('active'));
+ document.getElementById('inicio-aula').classList.add('active');
+ document.getElementById('cursos').scrollIntoView({behavior:'smooth'});
+}
+function responder(certo){
+ document.getElementById('resultado').textContent=
+ certo?'Muito bem! Resposta correta!':'Tenta novamente. Estuda a explicação e volta a responder.';
+}
+</script>
+</body>
+  </html>
+  
